@@ -19,7 +19,7 @@ let data = [
         desc: '一个服务于企业级产品的设计体系， pro版本。',
         url: 'https://pro.ant.design/index-cn'
     }
-];
+]
 
 
 
@@ -33,9 +33,9 @@ export default {
         }, 250)
     },
     'delete /api/cards/:id': function (req, res, next) {
-        data = data.filter(v => v.id !== parseInt(req.params.id));
-        console.log(req.params.id);
-        console.log(data);
+        data = data.filter(v => v.id !== parseInt(req.params.id))
+        console.log(req.params.id)
+        console.log(data)
         setTimeout(() => {
             res.json({
                 success: true,
@@ -46,11 +46,11 @@ export default {
         data = [...data, {
             ...req.body,
             id: data[data.length - 1].id + 1,
-        }];
+        }]
 
         res.json({
             success: true,
-        });
+        })
     },
     'get /api/cards/:id/statistic': function (req, res, next) {
         res.json({
@@ -61,6 +61,6 @@ export default {
                 { genre: 'Shooter', sold: 350 },
                 { genre: 'Other', sold: 150 },
             ]
-        });
+        })
     },
 }
