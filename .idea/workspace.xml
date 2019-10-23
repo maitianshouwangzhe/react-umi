@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed6124dd-8fcf-4abb-8f32-acedbe03f8cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mock/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/mock/cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/cards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/list/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +76,16 @@
       <workItem from="1571455555498" duration="26000" />
       <workItem from="1571811425717" duration="2663000" />
       <workItem from="1571814227382" duration="3232000" />
-      <workItem from="1571818869915" duration="3180000" />
+      <workItem from="1571818869915" duration="3378000" />
     </task>
+    <task id="LOCAL-00001" summary="第一次修改">
+      <created>1571823242726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571823242726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,5 +107,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次修改" />
   </component>
 </project>

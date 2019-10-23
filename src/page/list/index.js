@@ -44,7 +44,7 @@ class List extends React.Component {
             title: '操作',
             render: ( ) => (
                 <span>
-                    <a style={{marginRight: 15}}>修改</a>
+                    <a style={{marginRight: 20}}>修改</a>
                     <a>删除</a>
                 </span>
             ),
