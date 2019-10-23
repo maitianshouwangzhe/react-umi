@@ -124,7 +124,7 @@ class List extends React.Component {
 
         return (
             <div>
-                <Button type='primary' onClick={this.showModal} style={{marginBottom: 10}}>添加</Button>
+                <Button type='primary' onClick={this.showModal} style={{marginBottom: 20}}>添加</Button>
                 <Table
                     bordered
                     columns={this.columns}
