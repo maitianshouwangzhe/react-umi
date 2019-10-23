@@ -48,6 +48,7 @@ export default {
         },
     },
 
+    // reducer函数
     reducers: {
         saveList(state, { payload: { cardsList } }) {
             return {

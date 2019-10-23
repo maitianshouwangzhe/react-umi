@@ -17,7 +17,7 @@ let data = [
         id: 3,
         name: 'antd-pro',
         desc: '一个服务于企业级产品的设计体系， pro版本。',
-        url: 'https://ant.design/index-cn'
+        url: 'https://pro.ant.design/index-cn'
     }
 ];
 

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed6124dd-8fcf-4abb-8f32-acedbe03f8cb" name="Default Changelist" comment="" />
+    <list default="true" id="ed6124dd-8fcf-4abb-8f32-acedbe03f8cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mock/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/mock/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/list/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +21,12 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1SDjuhsIgJaBE7dBGzfuCaTXFqc" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-tutorial" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\learn\yuque\node_modules\prettier" />
@@ -70,6 +80,7 @@
       <workItem from="1571455555498" duration="26000" />
       <workItem from="1571811425717" duration="2663000" />
       <workItem from="1571814227382" duration="3232000" />
+      <workItem from="1571818869915" duration="3180000" />
     </task>
     <servers />
   </component>
@@ -80,6 +91,17 @@
         <option value="$PROJECT_DIR$/node_modules/umi-plugin-dva/src/fixtures/getModel/models/models/a.jsx" />
         <option value="$PROJECT_DIR$/node_modules/umi-plugin-dva/src/fixtures/getModel/models/models/a.js" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
 </project>

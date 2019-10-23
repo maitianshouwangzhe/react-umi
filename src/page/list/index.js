@@ -1,16 +1,17 @@
-import React from 'react';
-import { Table, Modal, Button, Form, Input } from 'antd';
-import { connect } from 'dva';
-import SampleChart from '../../component/SampleChart';
+import React from 'react'
+import { Table, Modal, Button, Form, Input } from 'antd'
+import { connect } from 'dva'
+import SampleChart from '../../component/SampleChart'
 
-const FormItem = Form.Item;
+const FormItem = Form.Item
 
 class List extends React.Component {
+
     state = {
         visible: false,
         statisticVisible: false,
         id: null,
-    };
+    }
 
     columns = [
         {
@@ -26,77 +27,92 @@ class List extends React.Component {
             dataIndex: 'url',
             render(value) {
                 return (
-                    <a href={value}>{value}</a>
-                );
+                    <a href={value} target='_blank'>{value}</a>
+                )
             },
         },
         {
-            title: '',
+            title: '图表',
             dataIndex: 'statistic',
-            render: (_, { id }) => {
+            render: (_, {id}) => {
                 return (
-                    <Button onClick={() => { this.showStatistic(id); }}>图表</Button>
-                );
+                    <Button onClick={() => { this.showStatistic(id) }}>图表</Button>
+                )
             },
         },
-    ];
+        {
+            title: '操作',
+            render: ( ) => (
+                <span>
+                    <a style={{marginRight: 15}}>修改</a>
+                    <a>删除</a>
+                </span>
+            ),
+        },
+
+    ]
 
     componentDidMount() {
         this.props.dispatch({
             type: 'cards/queryList',
-        });
+        })
     }
 
+    // 点击添加，显示添加的对话框
     showModal = () => {
-        this.setState({ visible: true });
-    };
+        this.setState({ visible: true })
+    }
 
     showStatistic = (id) => {
         this.props.dispatch({
             type: 'cards/getStatistic',
             payload: id,
-        });
-        this.setState({ id, statisticVisible: true });
-    };
+        })
+        this.setState({ id, statisticVisible: true })
+    }
 
     handleOk = () => {
-        const { dispatch, form: { validateFields } } = this.props;
+        const { dispatch, form: { validateFields } } = this.props
 
         validateFields((err, values) => {
             if (!err) {
                 dispatch({
                     type: 'cards/addOne',
                     payload: values,
-                });
-                this.setState({ visible: false });
+                })
+                this.setState({ visible: false })
             }
-        });
+        })
     }
 
     handleCancel = () => {
         this.setState({
             visible: false,
-        });
+        })
     }
 
     handleStatisticCancel = () => {
         this.setState({
             statisticVisible: false,
-        });
+        })
     }
 
     render() {
-        const { visible, statisticVisible, id } = this.state;
-        const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props;
+        const { visible, statisticVisible, id } = this.state
+        const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props
 
         return (
             <div>
-                <Table columns={this.columns} dataSource={cardsList} loading={cardsLoading} rowKey="id" />
-
-                <Button onClick={this.showModal}>新建</Button>
+                <Button type='primary' onClick={this.showModal} style={{marginBottom: 10}}>添加</Button>
+                <Table
+                    bordered
+                    columns={this.columns}
+                    dataSource={cardsList}
+                    loading={cardsLoading} rowKey="id"
+                />
 
                 <Modal
-                    title="新建记录"
+                    title="添加"
                     visible={visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
@@ -128,7 +144,7 @@ class List extends React.Component {
                     {/*<SampleChart data={statistic[id]} />*/}
                 </Modal>
             </div>
-        );
+        )
     }
 }
 
@@ -137,7 +153,7 @@ function mapStateToProps(state) {
         cardsList: state.cards.cardsList,
         cardsLoading: state.loading.effects['cards/queryList'],
         statistic: state.cards.statistic,
-    };
+    }
 }
 
-export default connect(mapStateToProps)(Form.create()(List));
+export default connect(mapStateToProps)(Form.create()(List))
