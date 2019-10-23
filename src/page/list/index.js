@@ -1,5 +1,6 @@
 import React from 'react'
-import { Table, Modal, Button, Form, Input } from 'antd'
+// 删除 最常用的组件为气泡确认框：Popconfirm
+import { Table, Modal, Button, Form, Input, Popconfirm, message, Icon } from 'antd'
 import { connect } from 'dva'
 import SampleChart from '../../component/SampleChart'
 
@@ -36,7 +37,7 @@ class List extends React.Component {
             dataIndex: 'statistic',
             render: (_, {id}) => {
                 return (
-                    <Button onClick={() => { this.showStatistic(id) }}>图表</Button>
+                    <Button onClick={() => {this.showStatistic(id)}}>图表</Button>
                 )
             },
         },
@@ -44,13 +45,33 @@ class List extends React.Component {
             title: '操作',
             render: ( ) => (
                 <span>
-                    <a style={{marginRight: 20}}>修改</a>
-                    <a>删除</a>
+
+                    <a style={{marginRight: 15}}>修改</a>
+                    <Popconfirm
+                        title="你确定删除吗？"
+                        icon={ <Icon type="question-circle-o" style={{ color: 'red' }} />}
+                        onConfirm={this.confirm}
+                        onCancel={this.cancel}
+                        okText="是"
+                        cancelText="否"
+                    >
+                        <a href="#">删除</a>
+                    </Popconfirm>
                 </span>
             ),
         },
 
     ]
+
+    confirm = (e) => {
+        console.log(e);
+        message.success('删除成功');
+    }
+
+    cancel=(e)=> {
+        console.log(e);
+        message.error('取消删除');
+    }
 
     componentDidMount() {
         this.props.dispatch({
@@ -108,7 +129,8 @@ class List extends React.Component {
                     bordered
                     columns={this.columns}
                     dataSource={cardsList}
-                    loading={cardsLoading} rowKey="id"
+                    loading={cardsLoading}
+                    rowKey="id"
                 />
 
                 <Modal

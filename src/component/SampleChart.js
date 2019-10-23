@@ -1,10 +1,10 @@
-import React from 'react';
-import G2 from '@antv/g2';
+import React from 'react'
+import G2 from '@antv/g2'
 
 class SampleChart extends React.Component {
     constructor(props) {
-        super(props);
-        this.containerRef = React.createRef();
+        super(props)
+        this.containerRef = React.createRef()
     }
 
     componentDidMount() {
@@ -12,33 +12,33 @@ class SampleChart extends React.Component {
             container: this.containerRef.current,
             width: 450,
             height: 300
-        });
-        this.refreshChart();
+        })
+        this.refreshChart()
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.data !== this.props.data) {
-            this.refreshChart();
+            this.refreshChart()
         }
     }
 
     componentWillUnmount() {
         if (this.chart) {
-            this.chart.destroy();
+            this.chart.destroy()
         }
     }
 
     refreshChart = () => {
-        this.chart.source(this.props.data);
-        this.chart.interval().position('genre*sold').color('genre');
-        this.chart.render();
-    };
+        this.chart.source(this.props.data)
+        this.chart.interval().position('genre*sold').color('genre')
+        this.chart.render()
+    }
 
     render() {
         return (
             <div ref={this.containerRef} />
-        );
+        )
     }
 }
 
-export default SampleChart;
+export default SampleChart
