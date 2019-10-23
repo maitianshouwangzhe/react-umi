@@ -1,0 +1,21 @@
+{
+  "name": "yuque",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@antv/g2": "^3.5.9",
+    "antd": "^3.23.6",
+    "react": "latest",
+    "umi": "^2.10.4",
+    "umi-plugin-react": "^1.12.5"
+  }
+}

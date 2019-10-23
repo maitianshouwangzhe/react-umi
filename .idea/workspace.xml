@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ed6124dd-8fcf-4abb-8f32-acedbe03f8cb" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SDjuhsIgJaBE7dBGzfuCaTXFqc" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-tutorial" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\learn\yuque\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\learn\yuque\src\page" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\learn\yuque" />
+      <recent name="D:\learn\yuque\src\page\Dashboard" />
+      <recent name="D:\learn\yuque\src\model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed6124dd-8fcf-4abb-8f32-acedbe03f8cb" name="Default Changelist" comment="" />
+      <created>1571105284959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571105284959</updated>
+      <workItem from="1571105287449" duration="16842000" />
+      <workItem from="1571132020726" duration="619000" />
+      <workItem from="1571136260770" duration="233000" />
+      <workItem from="1571188868259" duration="2583000" />
+      <workItem from="1571196581094" duration="252000" />
+      <workItem from="1571197179902" duration="4185000" />
+      <workItem from="1571207702019" duration="9673000" />
+      <workItem from="1571218451683" duration="1757000" />
+      <workItem from="1571220254572" duration="53000" />
+      <workItem from="1571279009939" duration="1269000" />
+      <workItem from="1571300764669" duration="6095000" />
+      <workItem from="1571378697612" duration="9329000" />
+      <workItem from="1571449900856" duration="4148000" />
+      <workItem from="1571455555498" duration="26000" />
+      <workItem from="1571811425717" duration="2663000" />
+      <workItem from="1571814227382" duration="3232000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules/umi-plugin-dva/src/fixtures/getModel/models/models/a.jsx" />
+        <option value="$PROJECT_DIR$/node_modules/umi-plugin-dva/src/fixtures/getModel/models/models/a.js" />
+      </list>
+    </option>
+  </component>
+</project>
