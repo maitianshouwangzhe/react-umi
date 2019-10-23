@@ -9,7 +9,9 @@ const FormItem = Form.Item
 class List extends React.Component {
 
     state = {
-        visible: false,
+        update:false,
+        add: false,
+        // visible: false,
         statisticVisible: false,
         id: null,
     }
@@ -43,10 +45,10 @@ class List extends React.Component {
         },
         {
             title: '操作',
-            render: ( ) => (
-                <span>
-
-                    <a style={{marginRight: 15}}>修改</a>
+            render: ( item ) => {
+                // console.log(item)
+                return <span>
+                    <a style={{marginRight: 15}} onClick={()=>this.showModal('update', item)}>修改</a>
                     <Popconfirm
                         title="你确定删除吗？"
                         icon={ <Icon type="question-circle-o" style={{ color: 'red' }} />}
@@ -58,19 +60,19 @@ class List extends React.Component {
                         <a href="#">删除</a>
                     </Popconfirm>
                 </span>
-            ),
-        },
+            }
+        }
 
     ]
 
     confirm = (e) => {
-        console.log(e);
-        message.success('删除成功');
+        console.log(e)
+        message.success('删除成功')
     }
 
     cancel=(e)=> {
-        console.log(e);
-        message.error('取消删除');
+        console.log(e)
+        message.error('取消删除')
     }
 
     componentDidMount() {
@@ -80,8 +82,17 @@ class List extends React.Component {
     }
 
     // 点击添加，显示添加的对话框
-    showModal = () => {
-        this.setState({ visible: true })
+    showModal = (type, item) => {
+        if (item !== {} ){
+            console.log(item)
+            this.item = item
+        } else {
+            this.item = null
+        }
+
+        this.setState({
+            [type]: true
+        })
     }
 
     showStatistic = (id) => {
@@ -94,7 +105,6 @@ class List extends React.Component {
 
     handleOk = () => {
         const { dispatch, form: { validateFields } } = this.props
-
         validateFields((err, values) => {
             if (!err) {
                 dispatch({
@@ -119,12 +129,13 @@ class List extends React.Component {
     }
 
     render() {
-        const { visible, statisticVisible, id } = this.state
+        const { add, update, statisticVisible, id } = this.state
         const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props
-
+        const item = this.item || {}
+        // debugger
         return (
             <div>
-                <Button type='primary' onClick={this.showModal} style={{marginBottom: 20}}>添加</Button>
+                <Button type='primary' onClick={()=>this.showModal('add', {})} style={{marginBottom: 20}}>添加</Button>
                 <Table
                     bordered
                     columns={this.columns}
@@ -134,8 +145,8 @@ class List extends React.Component {
                 />
 
                 <Modal
-                    title="添加"
-                    visible={visible}
+                    title= {  item ? "修改" : "添加"}
+                    visible={ (item === {} || null ) ?  add : update }
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
