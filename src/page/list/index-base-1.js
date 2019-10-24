@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Modal, Button, Form, Input, Popconfirm, Icon, message } from 'antd'
+import { Table, Modal, Button, Form, Input } from 'antd'
 import { connect } from 'dva'
 import SampleChart from '../../component/SampleChart'
 
@@ -32,43 +32,15 @@ class List extends React.Component {
             },
         },
         {
-            title: '统计图',
+            title: '',
             dataIndex: 'statistic',
             render: (_, { id }) => {
                 return (
-                    <Button onClick={ () => { this.showStatistic(id) }}>图表</Button>
+                    <Button onClick={() => { this.showStatistic(id) }}>图表</Button>
                 )
             },
         },
-        {
-            title: '操作',
-            render: (record) => (
-                <span>
-                    <a style={{marginRight: 15}} onClick={ ()=> this.showUpdateModal(record)}>修改</a>
-                      <Popconfirm
-                          title="你确定删除么？"
-                          onConfirm={this.confirm}
-                          onCancel={this.cancel}
-                          okText="是"
-                          cancelText="否"
-                          icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
-                      >
-                          <a href="#">删除</a>
-                      </Popconfirm>
-                </span>
-            ),
-        },
     ]
-
-    confirm=(e)=>{
-        console.log(e)
-        message.success('删除成功')
-    }
-
-    cancel=(e)=> {
-        console.log(e)
-        message.error('取消删除')
-    }
 
     componentDidMount() {
         this.props.dispatch({
@@ -76,18 +48,9 @@ class List extends React.Component {
         })
     }
 
-    // 显示修改的Modal框
-    showUpdateModal = (record) => {
-        this.record = record
+    showModal = () => {
         this.setState({ visible: true })
     }
-
-    // 显示增加的Modal框
-    showAddModal= () => {
-        this.record = null
-        this.setState({ visible: true })
-    }
-
 
     showStatistic = (id) => {
         this.props.dispatch({
@@ -97,10 +60,9 @@ class List extends React.Component {
         this.setState({ id, statisticVisible: true })
     }
 
-
-    // 添加的接口
     handleOk = () => {
         const { dispatch, form: { validateFields } } = this.props
+
         validateFields((err, values) => {
             if (!err) {
                 dispatch({
@@ -112,10 +74,10 @@ class List extends React.Component {
         })
     }
 
-
     handleCancel = () => {
-        this.props.form.resetFields()
-        this.setState({visible: false})
+        this.setState({
+            visible: false,
+        })
     }
 
     handleStatisticCancel = () => {
@@ -127,10 +89,10 @@ class List extends React.Component {
     render() {
         const { visible, statisticVisible, id } = this.state
         const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props
-        const record = this.record || {}
+
         return (
             <div>
-                <Button type='primary' style={{marginBottom: 15}} onClick={this.showAddModal}>新增</Button>
+                <Button type='primary' style={{marginBottom: 15}} onClick={this.showModal}>新建</Button>
 
                 <Table
                     bordered
@@ -139,43 +101,35 @@ class List extends React.Component {
                     loading={cardsLoading}
                     rowKey="id"
                 />
-                {/*   修改和添加使用同一个Modal框  */}
                 <Modal
-                    title={ record.id  ?  "修改" : '新增'}
+                    title="新建"
                     visible={visible}
                     onOk={this.handleOk}
-                    onCancel = { this.handleCancel }
+                    onCancel={this.handleCancel}
                 >
                     <Form>
                         <FormItem label="名称">
-                            {
-                                getFieldDecorator('name', {
-                                    initialValue: record.name,
-                                    rules: [
-                                        { required: true }
-                                        ],
-                                })(<Input />)
-                            }
+                            {getFieldDecorator('name', {
+                                rules: [{ required: true }],
+                            })(
+                                <Input />
+                            )}
                         </FormItem>
                         <FormItem label="描述">
-                            {
-                                getFieldDecorator('desc',{
-                                    initialValue: record.desc,
-                                    rules: [
-                                        { required: true }
-                                        ],
-                                })(<Input />)
-                            }
+                            {getFieldDecorator('desc',{
+                                rules: [{ required: true }],
+                            })(
+                                <Input />
+                            )}
                         </FormItem>
                         <FormItem label="链接">
-                            {
-                                getFieldDecorator('url', {
-                                    initialValue: record.url,
-                                    rules: [
-                                        { type: 'url' },
-                                    ],
-                                })(<Input />)
-                            }
+                            {getFieldDecorator('url', {
+                                rules: [
+                                    { type: 'url' },
+                                ],
+                            })(
+                                <Input />
+                            )}
                         </FormItem>
                     </Form>
                 </Modal>

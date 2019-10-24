@@ -111,7 +111,7 @@ class List extends React.Component {
             }
         })
     }
-
+    
 
     handleCancel = () => {
         this.props.form.resetFields()
