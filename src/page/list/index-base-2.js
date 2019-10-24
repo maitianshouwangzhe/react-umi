@@ -1,3 +1,8 @@
+/*
+* 基于官方的教程修改
+*
+* */
+
 import React from 'react'
 import { Table, Modal, Button, Form, Input, Popconfirm, Icon, message } from 'antd'
 import { connect } from 'dva'
@@ -76,6 +81,7 @@ class List extends React.Component {
         })
     }
 
+    // 虽然修改和添加使用同一个Modal框，但显示该Modal框的方法并不相同
     // 显示修改的Modal框
     showUpdateModal = (record) => {
         this.record = record

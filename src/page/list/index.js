@@ -8,7 +8,8 @@ const FormItem = Form.Item
 class List extends React.Component {
 
     state = {
-        visible: false,
+        add: false,
+        update: false,
         statisticVisible: false,
         id: null,
     }
@@ -44,7 +45,7 @@ class List extends React.Component {
             title: '操作',
             render: (record) => (
                 <span>
-                    <a style={{marginRight: 15}} onClick={ ()=> this.showUpdateModal(record)}>修改</a>
+                    <a style={{marginRight: 15}} onClick={ ()=> this.showModal('update',record)}>修改</a>
                       <Popconfirm
                           title="你确定删除么？"
                           onConfirm={this.confirm}
@@ -76,17 +77,17 @@ class List extends React.Component {
         })
     }
 
-    // 显示修改的Modal框
-    showUpdateModal = (record) => {
-        this.record = record
-        this.setState({ visible: true })
+    // 显示 修改 或 添加 的Modal框
+    // 修改传 两个 参数， 而添加没有仅 传一个 参数
+    showModal = (types, record) => {
+        if (record){
+            this.record = record
+        } else {
+            this.record = null
+        }
+        this.setState({[types]: true})
     }
 
-    // 显示增加的Modal框
-    showAddModal= () => {
-        this.record = null
-        this.setState({ visible: true })
-    }
 
 
     showStatistic = (id) => {
@@ -99,23 +100,25 @@ class List extends React.Component {
 
 
     // 添加的接口
-    handleOk = () => {
-        const { dispatch, form: { validateFields } } = this.props
-        validateFields((err, values) => {
+    handleOk = (types) => {
+        const { dispatch, form } = this.props
+        form.validateFields((err, values) => {
             if (!err) {
+                // 置空输入数据
+                form.resetFields()
                 dispatch({
                     type: 'cards/addOne',
                     payload: values,
                 })
-                this.setState({ visible: false })
+                this.setState({ [types]: false })
             }
         })
     }
 
 
-    handleCancel = () => {
+    handleCancel = (types) => {
         this.props.form.resetFields()
-        this.setState({visible: false})
+        this.setState({[types]: false})
     }
 
     handleStatisticCancel = () => {
@@ -125,12 +128,12 @@ class List extends React.Component {
     }
 
     render() {
-        const { visible, statisticVisible, id } = this.state
+        const { add,update, statisticVisible, id } = this.state
         const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props
         const record = this.record || {}
         return (
             <div>
-                <Button type='primary' style={{marginBottom: 15}} onClick={this.showAddModal}>新增</Button>
+                <Button type='primary' style={{marginBottom: 15}} onClick={ () => this.showModal('add')}>新增</Button>
 
                 <Table
                     bordered
@@ -141,10 +144,10 @@ class List extends React.Component {
                 />
                 {/*   修改和添加使用同一个Modal框  */}
                 <Modal
-                    title={ record.id  ?  "修改" : '新增'}
-                    visible={visible}
-                    onOk={this.handleOk}
-                    onCancel = { this.handleCancel }
+                    title={ record.id  ?  '修改': '新增'}
+                    visible={record.id ? update : add }
+                    onOk={ record.id ? () => this.handleOk('update') : () => this.handleOk('add')}
+                    onCancel = { record.id ? ()=> this.handleCancel('update') : () => this.handleCancel('add') }
                 >
                     <Form>
                         <FormItem label="名称">
