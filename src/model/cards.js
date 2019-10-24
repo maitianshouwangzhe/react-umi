@@ -51,14 +51,10 @@ export default {
     // reducer函数
     reducers: {
         saveList(state, { payload: { cardsList } }) {
-            return {
-                ...state,
-                cardsList,
-            }
+            return {...state, cardsList}
         },
         saveStatistic(state, { payload: { id, data } }) {
-            return {
-                ...state,
+            return {...state,
                 statistic: {
                     ...state.statistic,
                     [id]: data,
