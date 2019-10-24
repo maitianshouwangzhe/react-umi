@@ -106,9 +106,11 @@ class List extends React.Component {
 
     // 添加的接口
     handleOk = () => {
-        const { dispatch, form: { validateFields } } = this.props
+        const { dispatch, form: { validateFields, resetFields } } = this.props
         validateFields((err, values) => {
             if (!err) {
+                // 置空输入框的数据
+                resetFields()
                 dispatch({
                     type: 'cards/addOne',
                     payload: values,
