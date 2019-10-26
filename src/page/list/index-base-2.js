@@ -109,7 +109,7 @@ class List extends React.Component {
         const { dispatch, form: { validateFields, resetFields } } = this.props
         validateFields((err, values) => {
             if (!err) {
-                // 置空输入框的数据
+                // 置空输入框中的数据
                 resetFields()
                 dispatch({
                     type: 'cards/addOne',
