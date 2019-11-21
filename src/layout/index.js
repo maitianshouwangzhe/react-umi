@@ -48,6 +48,12 @@ export default class BasicLayout extends Component {
                                 <span>卡片cards</span>
                             </Link>
                         </Menu.Item>
+                        <Menu.Item key="8">
+                            <Link to="/users">
+                                <Icon type="user" />
+                                <span>用户管理</span>
+                            </Link>
+                        </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout >

@@ -37,7 +37,8 @@ export default {
             { path: 'puzzlecards', component: './puzzlecards'},
             // 由于list文件夹下只有index.js这一个文件，且在项目中index是默认的，可以这样写
             { path: 'list', component: './list' },
-            { path: 'cards', component: './cards' }
+            { path: 'cards', component: './cards' },
+            { path: 'users', component: './Users/user' },
         ]
     }],
 

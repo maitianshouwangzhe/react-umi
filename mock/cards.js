@@ -9,13 +9,13 @@ let data = [
     },
     {
         id: 2,
-        name: 'antd',
+        name: 'ant design版',
         desc: '一个服务于企业级产品的设计体系, 普通版。',
         url: 'https://ant.design/index-cn'
     },
     {
         id: 3,
-        name: 'antd-pro',
+        name: 'ant design pro版',
         desc: '一个服务于企业级产品的设计体系， pro版本。',
         url: 'https://pro.ant.design/index-cn'
     }
