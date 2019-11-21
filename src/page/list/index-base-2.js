@@ -1,3 +1,8 @@
+/*
+* 基于官方的教程修改
+*
+* */
+
 import React from 'react'
 import { Table, Modal, Button, Form, Input, Popconfirm, Icon, message } from 'antd'
 import { connect } from 'dva'
@@ -76,6 +81,7 @@ class List extends React.Component {
         })
     }
 
+    // 虽然修改和添加使用同一个Modal框，但显示该Modal框的方法并不相同
     // 显示修改的Modal框
     showUpdateModal = (record) => {
         this.record = record
@@ -100,9 +106,11 @@ class List extends React.Component {
 
     // 添加的接口
     handleOk = () => {
-        const { dispatch, form: { validateFields } } = this.props
+        const { dispatch, form: { validateFields, resetFields } } = this.props
         validateFields((err, values) => {
             if (!err) {
+                // 置空输入框中的数据
+                resetFields()
                 dispatch({
                     type: 'cards/addOne',
                     payload: values,

@@ -1,3 +1,7 @@
+/*
+* 官网给的完整例子
+* */
+
 import React from 'react'
 import { Table, Modal, Button, Form, Input } from 'antd'
 import { connect } from 'dva'
